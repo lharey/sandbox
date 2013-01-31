@@ -30,7 +30,9 @@ my $total_org_rows = $select_all_orgs->count();
 
 p $total_org_rows;
 
-# inserting data
+###################
+# INSERTING data
+###################
 # create - instantiates new row object and inserts into database
 my @chars = ("A".."Z", "a".."z");
 my $string;
@@ -55,6 +57,16 @@ p $neworg->in_storage();  ## 0 (FALSE)
 
 $neworg->insert();
 p $neworg->in_storage();  ## 1 (TRUE)
+
+#############
+# SELECTING
+#############
+
+# find - single row by unq key
+my $org1 = $schema->resultset('Organisation')->find({ name => 'Test1' });
+
+p $org1;
+
 
 
 exit;
