@@ -58,6 +58,17 @@ p $neworg->in_storage();  ## 0 (FALSE)
 $neworg->insert();
 p $neworg->in_storage();  ## 1 (TRUE)
 
+
+# insert some users here
+
+
+
+
+
+
+
+
+
 #############
 # SELECTING
 #############
@@ -65,7 +76,16 @@ p $neworg->in_storage();  ## 1 (TRUE)
 # find - single row by unq key
 my $org1 = $schema->resultset('Organisation')->find({ name => 'Test1' });
 
-p $org1;
+# access the fields
+p $org1->name;
+p $org1->api_key;
+
+# search - multiple objs - NEEDS RELATIONSHIPS
+#my $multiple_obj = $schema->resultset('User')->search(
+#   { 'me.org' => 'Test1' },             ## WHERE
+#    { prefetch => [ 'name' ] }    ## JOIN/SELECT
+## Fetch first entry using iteration:
+#my $userrow = $multiple_obj->next;
 
 
 

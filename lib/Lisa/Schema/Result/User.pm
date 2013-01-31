@@ -58,5 +58,5 @@ __PACKAGE__->add_columns(
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 
-#__PACKAGE__->belongs_to('name', 'Lisa::Schema::Result::Organisation', 'org'); #need primary keys on database
+__PACKAGE__->belongs_to('name', 'Lisa::Schema::Result::Organisation', 'org'); #need primary keys on database
 1;
